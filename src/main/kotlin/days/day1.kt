@@ -3,6 +3,7 @@ package days
 import api.fetchData
 import kotlin.time.measureTimedValue
 
+// Example from 2022
 fun day1(part: Int) {
     val data = fetchData(1)
     val cookiesPerElf =
