@@ -1,8 +1,10 @@
 package days
 
-import java.lang.Exception
+import api.fetchData
 
 fun day16(part: Int) {
+    val data = fetchData(16)
+
     when (part) {
         1 -> part1()
         2 -> part2()

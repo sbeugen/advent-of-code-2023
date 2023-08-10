@@ -11,7 +11,7 @@ fun fetchData(day: Int): String {
 
     val client = HttpClient.newHttpClient();
     val request =
-        HttpRequest.newBuilder(URI.create("https://adventofcode.com/2022/day/$day/input"))
+        HttpRequest.newBuilder(URI.create("https://adventofcode.com/2023/day/$day/input"))
             .header("Cookie", "session=$sessionToken")
             .GET().build()
 
