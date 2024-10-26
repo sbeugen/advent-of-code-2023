@@ -1,22 +1,19 @@
 package days
 
-import api.fetchData
+class Day3(private val data: String) {
+    fun execute(part: Int) {
+        when (part) {
+            1 -> part1()
+            2 -> part2()
+            else -> throw Exception("Unknown part $part")
+        }
+    }
 
-fun day3(part: Int) {
-    val data = fetchData(3)
+    private fun part1() {
+        println("day 3; part 1")
+    }
 
-    when (part) {
-        1 -> part1()
-        2 -> part2()
-        else -> throw Exception("Unknown part $part")
+    private fun part2() {
+        println("day 3; part 2")
     }
 }
-
-private fun part1() {
-    println("day 3; part 1")
-}
-
-private fun part2() {
-    println("day 3; part 2")
-}
-

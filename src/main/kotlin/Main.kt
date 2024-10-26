@@ -1,40 +1,44 @@
+import api.DataProvider
 import days.*
 import kotlin.time.measureTime
 
 fun main(args: Array<String>) {
-    val time = measureTime {
-        val day = args[0].toInt()
-        val part = args[1].toInt()
+    val day = args[0].toInt()
+    val part = args[1].toInt()
 
+    val dataProvider = DataProvider()
+    val data = dataProvider.fetchData(day)
+
+    val time = measureTime {
         when (day) {
-            1 -> day1(part)
-            2 -> day2(part)
-            3 -> day3(part)
-            4 -> day4(part)
-            5 -> day5(part)
-            6 -> day6(part)
-            7 -> day7(part)
-            8 -> day8(part)
-            9 -> day9(part)
-            10 -> day10(part)
-            11 -> day11(part)
-            12 -> day12(part)
-            13 -> day13(part)
-            14 -> day14(part)
-            15 -> day15(part)
-            16 -> day16(part)
-            17 -> day17(part)
-            18 -> day18(part)
-            19 -> day19(part)
-            20 -> day20(part)
-            21 -> day21(part)
-            22 -> day22(part)
-            23 -> day23(part)
-            24 -> day24(part)
-            25 -> day25(part)
+            1 -> Day1(data).execute(part)
+            2 -> Day2(data).execute(part)
+            3 -> Day3(data).execute(part)
+            4 -> Day4(data).execute(part)
+            5 -> Day5(data).execute(part)
+            6 -> Day6(data).execute(part)
+            7 -> Day7(data).execute(part)
+            8 -> Day8(data).execute(part)
+            9 -> Day9(data).execute(part)
+            10 -> Day10(data).execute(part)
+            11 -> Day11(data).execute(part)
+            12 -> Day12(data).execute(part)
+            13 -> Day13(data).execute(part)
+            14 -> Day14(data).execute(part)
+            15 -> Day15(data).execute(part)
+            16 -> Day16(data).execute(part)
+            17 -> Day17(data).execute(part)
+            18 -> Day18(data).execute(part)
+            19 -> Day19(data).execute(part)
+            20 -> Day20(data).execute(part)
+            21 -> Day21(data).execute(part)
+            22 -> Day22(data).execute(part)
+            23 -> Day23(data).execute(part)
+            24 -> Day24(data).execute(part)
+            25 -> Day25(data).execute(part)
             else -> throw Exception("Unknown day $day")
         }
     }
 
-    println("Total duration (including fetching input data): $time")
+    println("Total duration: $time")
 }
