@@ -12,7 +12,7 @@ class DataProvider {
 
         val client = HttpClient.newHttpClient();
         val request =
-            HttpRequest.newBuilder(URI.create("https://adventofcode.com/2023/day/$day/input"))
+            HttpRequest.newBuilder(URI.create("https://adventofcode.com/2024/day/$day/input"))
                 .header("Cookie", "session=$sessionToken")
                 .GET().build()
 

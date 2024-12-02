@@ -1,6 +1,22 @@
 package days
 
-class Day1(private val data: String) {
+import kotlin.math.abs
+
+class Day1(data: String) {
+    private val firstColumn = mutableListOf<Int>()
+    private val secondColumn = mutableListOf<Int>()
+    private val numberMatcherRegex = Regex("(\\d+)")
+
+    init {
+        data.trim().split("\n")
+            .forEach {
+                val values = numberMatcherRegex.findAll(it)
+                firstColumn.add(values.first().value.toInt())
+                secondColumn.add(values.last().value.toInt())
+            }
+    }
+
+
     fun execute(part: Int) {
         when (part) {
             1 -> part1()
@@ -10,10 +26,21 @@ class Day1(private val data: String) {
     }
 
     private fun part1() {
-        println("day 1; part 1")
+        firstColumn.sort()
+        secondColumn.sort()
+
+        val result = (0..<firstColumn.size).sumOf {
+            abs(firstColumn[it] - secondColumn[it])
+        }
+
+        println("result = $result")
     }
 
     private fun part2() {
-        println("day 1; part 2")
+        val result = firstColumn.sumOf { entry ->
+            entry * secondColumn.count { entry == it }
+        }
+
+        println("result = $result")
     }
 }
