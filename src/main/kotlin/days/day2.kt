@@ -61,33 +61,7 @@ fun List<Int>.isSafeReport(): Boolean {
 }
 
 fun List<Int>.isSafeReport2(): Boolean {
-    var order: Order? = null
-
-    for (index in 0..<(this.size - 1)) {
-        if (order == null) {
-            order = if (this[index] > this[index + 1]) {
-                Order.DESC
-            } else if (this[index] < this[index + 1]) {
-                Order.ASC
-            } else {
-                return this.indices.any { i ->
-                    this.toMutableList().apply { removeAt(i) }.isSafeReport()
-                }
-            }
-        }
-
-        if (order == Order.ASC && (this[index] >= this[index + 1] || (this[index + 1] - this[index]) > 3)) {
-            return this.indices.any { i ->
-                this.toMutableList().apply { removeAt(i) }.isSafeReport()
-            }
-        }
-
-        if (order == Order.DESC && (this[index] <= this[index + 1] || (this[index] - this[index + 1]) > 3)) {
-            return this.indices.any { i ->
-                this.toMutableList().apply { removeAt(i) }.isSafeReport()
-            }
-        }
+    return this.indices.any { i ->
+        this.toMutableList().apply { removeAt(i) }.isSafeReport()
     }
-
-    return true
 }
