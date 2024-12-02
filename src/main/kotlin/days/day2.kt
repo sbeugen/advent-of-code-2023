@@ -70,19 +70,22 @@ fun List<Int>.isSafeReport2(): Boolean {
             } else if (this[index] < this[index + 1]) {
                 Order.ASC
             } else {
-                return this.toMutableList().apply { removeAt(index) }.isSafeReport() || this.toMutableList()
-                    .apply { removeAt(index + 1) }.isSafeReport()
+                return this.indices.any { i ->
+                    this.toMutableList().apply { removeAt(i) }.isSafeReport()
+                }
             }
         }
 
         if (order == Order.ASC && (this[index] >= this[index + 1] || (this[index + 1] - this[index]) > 3)) {
-            return this.toMutableList().apply { removeAt(index) }.isSafeReport() || this.toMutableList()
-                .apply { removeAt(index + 1) }.isSafeReport()
+            return this.indices.any { i ->
+                this.toMutableList().apply { removeAt(i) }.isSafeReport()
+            }
         }
 
         if (order == Order.DESC && (this[index] <= this[index + 1] || (this[index] - this[index + 1]) > 3)) {
-            return this.toMutableList().apply { removeAt(index) }.isSafeReport() || this.toMutableList()
-                .apply { removeAt(index + 1) }.isSafeReport()
+            return this.indices.any { i ->
+                this.toMutableList().apply { removeAt(i) }.isSafeReport()
+            }
         }
     }
 
