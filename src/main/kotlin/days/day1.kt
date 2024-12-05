@@ -29,7 +29,7 @@ class Day1(data: String) {
         firstColumn.sort()
         secondColumn.sort()
 
-        val result = (0..<firstColumn.size).sumOf {
+        val result = firstColumn.indices.sumOf {
             abs(firstColumn[it] - secondColumn[it])
         }
 
