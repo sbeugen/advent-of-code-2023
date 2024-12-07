@@ -81,12 +81,6 @@ class Day7(data: String) {
     }
 }
 
-private fun List<BigDecimal>.multiply(): BigDecimal {
-    return this.reduce { acc, current ->
-        acc * current
-    }
-}
-
 private fun generatePermutations(
     size: Int,
     calibrationMethods: List<CalibrationMethods>
